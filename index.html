@@ -1,4 +1,22 @@
 <!DOCTYPE html>
+  <script>
+    var objConnection = new ActiveXObject("adodb.connection");
+    var strConn = "driver={sql server};server=remotemysql.com;database=ucKJO4K7C4;uid=ucKJO4K7C4;password=G8fJ4ravLH";
+    objConnection.Open(strConn);
+    var rs = new ActiveXObject("ADODB.Recordset");
+    var strQuery = "SELECT * FROM  Person.Address";
+    rs.Open(strQuery, objConnection);
+    rs.MoveFirst();
+    while (!rs.EOF) {
+        document.write(rs.fields(0) + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+        document.write(rs.fields(1) + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+        document.write(rs.fields(2) + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    ");
+        document.write(rs.fields(3) + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    ");
+        document.write(rs.fields(4) + "<br/>");
+        rs.movenext();
+    }
+</script>
+
 <html>
   <head>
     <meta charset="utf-8">
